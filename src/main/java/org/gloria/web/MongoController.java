@@ -1,6 +1,6 @@
 package org.gloria.web;
 
-import org.gloria.mongodb.entity.User;
+import main.org.gloria.mongodb.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.gloria.mongodb.dao.*;

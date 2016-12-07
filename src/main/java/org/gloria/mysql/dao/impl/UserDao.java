@@ -1,6 +1,6 @@
 package org.gloria.mysql.dao.impl;
 
-import org.gloria.mysql.dao.IUserDao;
+import main.org.gloria.mysql.dao.IUserDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -12,7 +12,6 @@ import org.gloria.mysql.entity.*;
 import org.springframework.stereotype.Repository;
 
 import java.sql.PreparedStatement;
-import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -21,7 +20,7 @@ import java.util.Map;
  * Created by gloria on 2016/12/5.
  */
 @Repository
-public class UserDao implements IUserDao{
+public class UserDao implements IUserDao {
 
     @Autowired
     private JdbcTemplate jdbcTemplate;

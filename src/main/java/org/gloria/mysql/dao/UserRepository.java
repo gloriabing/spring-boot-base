@@ -1,7 +1,7 @@
 package org.gloria.mysql.dao;
 
-import org.gloria.mongodb.entity.User;
-import org.gloria.mysql.entity.JpaUser;
+import main.org.gloria.mongodb.entity.User;
+import main.org.gloria.mysql.entity.JpaUser;
 import org.springframework.data.repository.CrudRepository;
 
 import javax.transaction.Transactional;

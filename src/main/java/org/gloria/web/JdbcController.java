@@ -1,6 +1,6 @@
 package org.gloria.web;
 
-import org.gloria.mysql.dao.IUserDao;
+import main.org.gloria.mysql.dao.IUserDao;
 import org.springframework.format.annotation.NumberFormat;
 import org.springframework.web.bind.annotation.*;
 import org.gloria.mysql.entity.*;
