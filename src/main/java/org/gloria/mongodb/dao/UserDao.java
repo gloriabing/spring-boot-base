@@ -1,7 +1,8 @@
 package org.gloria.mongodb.dao;
 
-import main.org.gloria.mongodb.entity.User;
+
 import org.bson.types.ObjectId;
+import org.gloria.mongodb.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.stereotype.Repository;

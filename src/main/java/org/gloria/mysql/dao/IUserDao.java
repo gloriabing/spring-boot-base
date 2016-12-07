@@ -1,6 +1,7 @@
 package org.gloria.mysql.dao;
 
-import main.org.gloria.mysql.entity.User;
+
+import org.gloria.mysql.entity.User;
 
 import java.util.List;
 

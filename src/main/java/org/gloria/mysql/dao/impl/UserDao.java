@@ -1,14 +1,14 @@
 package org.gloria.mysql.dao.impl;
 
-import main.org.gloria.mysql.dao.IUserDao;
+
+import org.gloria.mysql.dao.IUserDao;
+import org.gloria.mysql.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.PreparedStatementSetter;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
-import org.gloria.mysql.entity.*;
 import org.springframework.stereotype.Repository;
 
 import java.sql.PreparedStatement;

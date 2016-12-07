@@ -1,7 +1,7 @@
 package org.gloria.mysql.dao;
 
-import main.org.gloria.mongodb.entity.User;
-import main.org.gloria.mysql.entity.JpaUser;
+
+import org.gloria.mysql.entity.JpaUser;
 import org.springframework.data.repository.CrudRepository;
 
 import javax.transaction.Transactional;
@@ -14,6 +14,6 @@ import javax.transaction.Transactional;
 @Transactional
 public interface UserRepository extends CrudRepository<JpaUser, String> {
 
-    public User findById(Long id);
+    public JpaUser findById(Long id);
 
 }
