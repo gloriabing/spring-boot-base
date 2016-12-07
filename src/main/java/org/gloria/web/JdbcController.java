@@ -2,15 +2,18 @@ package org.gloria.web;
 
 
 import org.gloria.mysql.dao.IUserDao;
+import org.gloria.mysql.dao.UserCustomRepository;
 import org.gloria.mysql.dao.UserRepository;
 import org.gloria.mysql.entity.JpaUser;
 import org.gloria.mysql.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.format.annotation.NumberFormat;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
-import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -26,8 +29,8 @@ public class JdbcController {
     @Autowired
     private UserRepository userRepository;
 
-//    @Autowired
-//    private UserCustomRepository userCustomRepository;
+    @Autowired
+    private UserCustomRepository userCustomRepository;
 
     /**
      * 保存
@@ -62,8 +65,10 @@ public class JdbcController {
     }
 
     @RequestMapping(value = "/user/query/jpa", method = RequestMethod.GET)
-    public Iterable<JpaUser> findAllByJpa() {
-        return userRepository.findAll();
+    public Iterable<JpaUser> findAllByJpa(@PageableDefault(value = 15, sort = { "id" }, direction = Sort.Direction.DESC)
+                                                  Pageable pageable) {
+        return userCustomRepository.findAll(pageable);
+
     }
 
 }
