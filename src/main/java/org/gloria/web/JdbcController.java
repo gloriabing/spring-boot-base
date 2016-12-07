@@ -42,8 +42,6 @@ public class JdbcController {
     @RequestMapping(value = "/user/save" , method = RequestMethod.PUT)
     public Object save(@RequestBody User user) {
 
-        userDao.save(user);
-
         userDao.saveAndReturnKey(user);
 
         return user;
@@ -64,11 +62,35 @@ public class JdbcController {
         return userRepository.findById(id);
     }
 
+    /**
+     * 分页列出所有记录
+     * @param pageable
+     * @return
+     */
     @RequestMapping(value = "/user/query/jpa", method = RequestMethod.GET)
-    public Iterable<JpaUser> findAllByJpa(@PageableDefault(value = 15, sort = { "id" }, direction = Sort.Direction.DESC)
+    public Iterable<JpaUser> findAllByJpa(@PageableDefault(value = 15, sort = {"id"}, direction = Sort.Direction.DESC)
                                                   Pageable pageable) {
         return userCustomRepository.findAll(pageable);
 
     }
 
+    /**
+     * 根据条件查询
+     * @param name
+     * @return
+     */
+    @RequestMapping(value = "/user/query", params = "name", method = RequestMethod.GET)
+    public JpaUser findByName(@RequestParam String name) {
+        return userCustomRepository.findByName(name);
+    }
+
+    /**
+     * 根据id删除记录
+     * @param id
+     * @return
+     */
+    @RequestMapping(value = "/user/delete/{id}", method = RequestMethod.DELETE)
+    public Object deleteById(@PathVariable @NumberFormat Long id) {
+        return userCustomRepository.deleteById(id);
+    }
 }

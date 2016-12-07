@@ -30,7 +30,6 @@ public class MongoController {
     }
 
     @RequestMapping(value = "/user/query", method = RequestMethod.GET)
-    @ResponseBody
     public List<User> findAll() {
 //        return userDao.findAll();
         return userRepository.findAll();
@@ -40,5 +39,10 @@ public class MongoController {
     public User findById(@PathVariable String id) {
 //        return userDao.findById(id);
         return userRepository.findById(id);
+    }
+
+    @RequestMapping(value = "/user/query", params = "name", method = RequestMethod.GET)
+    public User findByName(@RequestParam String name) {
+        return userDao.findByName(name);
     }
 }
