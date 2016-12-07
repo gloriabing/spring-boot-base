@@ -14,7 +14,7 @@ import java.util.List;
  * @since
  * @version
  */
-@Repository(value = "userRepository")
+@Repository(value = "userRepositoryMongo")
 public interface UserRepository extends MongoRepository<User, String> {
 
     @Query(value = "{}")

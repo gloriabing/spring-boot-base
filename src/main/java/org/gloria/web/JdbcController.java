@@ -2,11 +2,15 @@ package org.gloria.web;
 
 
 import org.gloria.mysql.dao.IUserDao;
+import org.gloria.mysql.dao.UserRepository;
+import org.gloria.mysql.entity.JpaUser;
 import org.gloria.mysql.entity.User;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.NumberFormat;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -18,6 +22,12 @@ public class JdbcController {
 
     @Resource(name = "userDao")
     private IUserDao userDao;
+
+    @Autowired
+    private UserRepository userRepository;
+
+//    @Autowired
+//    private UserCustomRepository userCustomRepository;
 
     /**
      * 保存
@@ -44,6 +54,16 @@ public class JdbcController {
     @RequestMapping(value = "/user/query/{id}", method = RequestMethod.GET)
     public User findOne(@PathVariable @NumberFormat Long id) {
         return userDao.findById(id);
+    }
+
+    @RequestMapping(value = "/user/query/jpa/{id}", method = RequestMethod.GET)
+    public JpaUser findOneByJpa(@PathVariable @NumberFormat Long id) {
+        return userRepository.findById(id);
+    }
+
+    @RequestMapping(value = "/user/query/jpa", method = RequestMethod.GET)
+    public Iterable<JpaUser> findAllByJpa() {
+        return userRepository.findAll();
     }
 
 }

@@ -20,7 +20,7 @@ public class MongoController {
     @Resource(name = "mongoUserDao")
     private UserDao userDao;
 
-    @Autowired
+    @Resource(name = "userRepositoryMongo")
     private UserRepository userRepository;
 
     @RequestMapping(value = "/user/save", method = RequestMethod.PUT)
