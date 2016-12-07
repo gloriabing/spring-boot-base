@@ -47,6 +47,11 @@ public class JdbcController {
         return user;
     }
 
+    @RequestMapping(value = "/user/update", method = RequestMethod.PUT)
+    public Object update(@RequestBody User user) {
+        return userDao.saveOrUpdate(user);
+    }
+
     @RequestMapping(value = "/user/query", method = RequestMethod.GET)
     public List<User> findAll() {
         return userDao.findAll();

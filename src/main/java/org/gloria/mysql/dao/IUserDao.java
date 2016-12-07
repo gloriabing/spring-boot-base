@@ -14,8 +14,12 @@ public interface IUserDao {
 
     void save(User user);
 
+    User saveOrUpdate(User user);
+
     User saveAndReturnKey(User user);
 
     User findById(Long id);
+
+    User findByName(String name);
 
 }

@@ -42,6 +42,28 @@ public class UserDao implements IUserDao {
     }
 
     @Override
+    public User saveOrUpdate(User user) {
+        User u = findByName(user.getName());
+        if (null != u) {
+            //更新
+            String sql = "update user set name = :name, pwd = :pwd where id = :id";
+            Map<String, Object> params = new HashMap<>();
+            params.put("name", user.getName());
+            params.put("pwd", user.getPwd());
+            params.put("id", u.getId());
+
+            new NamedParameterJdbcTemplate(jdbcTemplate).update(sql, params);
+            user.setId(u.getId());
+
+            return user;
+        } else {
+            //保存
+            return saveAndReturnKey(user);
+        }
+
+    }
+
+    @Override
     public User saveAndReturnKey(User user) {
         String sql = "insert into user(name,pwd) values(?,?)";
 
@@ -64,6 +86,14 @@ public class UserDao implements IUserDao {
         String sql = "select id,name,pwd from user where id = :id";
         Map<String, Long> params = new HashMap<>();
         params.put("id", id);
+        return new NamedParameterJdbcTemplate(jdbcTemplate).query(sql, params, new BeanPropertyRowMapper<>(User.class)).get(0);
+    }
+
+    @Override
+    public User findByName(String name) {
+        String sql = "select id,name,pwd from user where name = :name";
+        Map<String, String> params = new HashMap<>();
+        params.put("name", name);
         return new NamedParameterJdbcTemplate(jdbcTemplate).query(sql, params, new BeanPropertyRowMapper<>(User.class)).get(0);
     }
 

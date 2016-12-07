@@ -19,6 +19,9 @@ import java.util.List;
  * Create on 2016/12/6 18:15.
  *
  * @author : gloria.
+ *
+ * 直接用原生mongoTemplate进行mongo操作
+ *
  */
 @Repository(value = "mongoUserDao")
 public class UserDao {

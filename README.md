@@ -8,7 +8,7 @@ spring boot 中集成常用框架：JDBC，MongoDB，JPA ......
       - [x] 单数据源配置
       - [x] 保存记录，保存记录并返回主键
       - [x] 根据条件查询记录
-      - [ ] 更新
+      - [x] 更新
     ```
     
   2. JPA
@@ -23,5 +23,6 @@ spring boot 中集成常用框架：JDBC，MongoDB，JPA ......
       - [x] 数据源配置，采用mongodb.uri方式配置
       - [x] @Query方式实现查询
       - [x] 通过MongoTemplate进行灵活查询
+      - [x] 封装MongoTemplate添加查询
     ```
     
