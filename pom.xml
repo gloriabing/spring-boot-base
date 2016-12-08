@@ -10,6 +10,7 @@
 		<module>jdbc</module>
 		<module>mongodb</module>
 		<module>jpa-mysql</module>
+		<module>redis</module>
 	</modules>
     <packaging>pom</packaging>
 
