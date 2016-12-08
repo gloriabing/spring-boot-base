@@ -1,5 +1,4 @@
 # spring-boot-base
-spring boot 中集成常用框架：JDBC，MongoDB，JPA ......
 ###本项目搭建的目的是作为spring-boot类型项目的基础模板
 
 ####暂时集成：
@@ -24,5 +23,11 @@ spring boot 中集成常用框架：JDBC，MongoDB，JPA ......
       - [x] @Query方式实现查询
       - [x] 通过MongoTemplate进行灵活查询
       - [x] 封装MongoTemplate添加查询
+    ```
+  4. Redis
+    ```
+      - [x] 数据源配置
+      - [x] 自定义封装StringRedisTemplate基本操作
+        
     ```
     
