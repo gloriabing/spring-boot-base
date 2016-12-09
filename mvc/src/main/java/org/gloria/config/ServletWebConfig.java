@@ -25,12 +25,6 @@ public class ServletWebConfig extends WebMvcConfigurerAdapter {
         registry
                 .addResourceHandler("/resources/**")
                 .addResourceLocations("/resources/");
-//        registry.addResourceHandler("/assets/**").addResourceLocations("/assets/");
-//        registry.addResourceHandler("/global/**").addResourceLocations("/assets/global");
-//        registry.addResourceHandler("/views/**").addResourceLocations("/assets/admin/angularjs/views/");
-//        registry.addResourceHandler("/js/**").addResourceLocations("/assets/admin/angularjs/js/");
-//        registry.addResourceHandler("/tpl/**").addResourceLocations("/assets/admin/angularjs/tpl/");
-//        registry.addResourceHandler("/layout/**").addResourceLocations("/assets/admin/layout/");
 
     }
 
