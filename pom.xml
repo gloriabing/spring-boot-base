@@ -12,6 +12,7 @@
 		<module>jpa-mysql</module>
 		<module>redis</module>
 		<module>mvc</module>
+		<module>amqp</module>
 	</modules>
     <packaging>pom</packaging>
 
@@ -40,16 +41,11 @@
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 
-
-
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-
-        <!-- drivers -->
-
 
         <!-- utils -->
         <dependency>
