@@ -45,6 +45,24 @@ public class CustomRedisTemplate {
     }
 
     /**
+     * 根据队列名称lpop出一个对象
+     * @param key
+     * @param clazz
+     * @param <T>
+     * @return
+     */
+    public <T> T lpop(String key, Class<T> clazz) {
+        String json = redisTemplate.opsForList().leftPop(key);
+
+        try {
+            return mapper.readValue(json, clazz);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    /**
      * 向指定队列中存储对象
      * @param key   队列名称
      * @param obj   对象
@@ -52,6 +70,19 @@ public class CustomRedisTemplate {
     public void lpush(String key, Object obj) {
         try {
             redisTemplate.opsForList().leftPush(key, mapper.writeValueAsString(obj));
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * 想指定队列中存储对象
+     * @param key
+     * @param obj
+     */
+    public void rpush(String key, Object obj) {
+        try {
+            redisTemplate.opsForList().rightPush(key, mapper.writeValueAsString(obj));
         } catch (JsonProcessingException e) {
             e.printStackTrace();
         }
