@@ -77,8 +77,8 @@ public class CustomRedisTemplate {
 
     /**
      * 想指定队列中存储对象
-     * @param key
-     * @param obj
+     * @param key 队列名称
+     * @param obj 对象
      */
     public void rpush(String key, Object obj) {
         try {
