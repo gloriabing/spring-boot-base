@@ -22,17 +22,17 @@ public class CustomUserDao extends CustomMongoTemplate {
 
     public void save(User user) {
 
-        save(user);
+        super.save(user);
     }
 
     public User findById(String id) {
         Query query = Query.query(Criteria.where("_id").is(new ObjectId(id)));
-        return findOne(query, User.class);
+        return super.findOne(query, User.class);
     }
 
     public User findByName(String name) {
         Query query = Query.query(Criteria.where("name").is(name));
-        return findOne(query, User.class);
+        return super.findOne(query, User.class);
     }
 
     public List<User> findAll() {
